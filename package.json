@@ -2,14 +2,14 @@
   "name": "bank",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "beckend/server.js",
   "dependencies": {
     "font-awesome": "^4.7.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./beckend/server.js",
+    "start": "node beckend/server.js",
     "heroku-postbuild": "cd bank && npm install && npm run build"
   },
   "repository": {
