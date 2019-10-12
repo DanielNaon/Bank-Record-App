@@ -1,7 +1,9 @@
-    const express = require('express')
+const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended : false}))
@@ -17,6 +19,9 @@ app.use(function (req, res, next) {
 })
 
  app.use('/', router)
+ app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 
 const port = process.env.PORT || 8000

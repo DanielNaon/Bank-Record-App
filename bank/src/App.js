@@ -5,7 +5,7 @@ import Transactions from './components/Transactions'
 import Operations from './components/Operations'
 
 import './App.css';
-
+// http://localhost:8000
 class App extends Component {
   constructor(){
     super()
@@ -22,16 +22,16 @@ class App extends Component {
   }
 
   componentDidMount=async()=>{
-    const allMoneySpend = await axios.get('http://localhost:8000/transcations')
+    const allMoneySpend = await axios.get('/transcations')
     this.setState({bankInfo: allMoneySpend.data}, function(){
       console.log(this.state.bankInfo)
     })
   }
   // recive the obj from operations update state
   newMoneySpendBank= async(newMoneySpend)=>{
-    await axios.post('http://localhost:8000/transcations',newMoneySpend)
+    await axios.post('/transcations',newMoneySpend)
     //sending a requse to bring all the data with the new money!!
-    let oldMoneyAndNewMoney= await axios.get('http://localhost:8000/transcations')
+    let oldMoneyAndNewMoney= await axios.get('/transcations')
     await this.setState({ bankInfo : oldMoneyAndNewMoney.data })
   
   }
